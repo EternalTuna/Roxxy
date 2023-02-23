@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>{% block title %}{% endblock %}</title>
+
+            <link rel="stylesheet" href="https://unpkg.com/tailwindcss@latest/dist/tailwind.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+        </head>
+    <body>
+        <nav class="bg-blue-500 py-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <a href="/" class="text-white font-sans-bold text-lg">My site</a>
+                <ul class="flex">
+                    <li class="mx-2"><a href="/" class="text-white hover:text-gray-200">Home</a></li>
+                    <li class="mx-2"><a href="{% url 'create_social_card' %}" class="text-white hover:text-gray-200">Create social card</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container mx-auto px-4 my-8">
+            <div class="flex justify-center">
+                <div class="w-3/4 animate__animated animate__fadeInUp">
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+        </div>
+        <script src="https://unpkg.com/htmx.org/dist/htmx.min.js"></script>
+        <script src="{% static 'posts/js/main.js' %}"></script>
+    </body>
+</html>

@@ -1,0 +1,6 @@
+        {% extends 'base.html' %}
+        
+        {% block content %}
+        <h2>{{ social_card.title }}</h2>
+        <img src="{{ social_card.image.url }}" alt="{{ social_card.title }}">
+        {% endblock %}

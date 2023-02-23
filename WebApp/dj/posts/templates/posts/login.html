@@ -1,0 +1,21 @@
+{% extends 'posts/base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="bg-white rounded-lg shadow-lg p-6">
+    <h2 class="text-lg font-sans-bold mb-4">Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-4">
+            <label for="username" class="block font-sans-bold mb-2">Username</label>
+            <input type="text" name="username" id="username" class="border rounded-lg py-2 px-3 w-full" required>
+        </div>
+        <div class="mb-4">
+          <label for="password" class="block font-sans-bold mb-2">Password</label>
+          <input type="password" name="password" id="password" class="border rounded-lg py-2 px-3 w-full" required>   
+        </div>
+        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-sans-bold py-2 px-4 rounded-lg">Login</button>
+    </form>
+</div>
+{% endblock %}

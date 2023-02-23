@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    </head>
+        <body>
+            <!--Navbar-->
+    <nav class="bg-gray-800 py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <a href="{% url 'home' %}" class="text-white font-bold">My Social Card</a>
+                <div class="flex">
+                    {% if user.is_authenticated %}
+                        <p class="text-white mr-4">Welcome, {{ user.username }}!</p>
+                        <form action="{% url 'logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg">Logout</button>
+                        </form>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="text-white font-bold">Login</a>
+                        <a href="{% url 'signup' %}" class="text-white font-bold ml-4">Sign up</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Main content -->
+    <div class="container mx-auto px-4 my-8">
+        {% block content %}{% endblock %}
+    </div>
+    <!-- Include htmx.js -->
+    <script src="https://unpkg.com/htmx.org/dist/htmx.min.js"></script>
+    <!-- Include our custom JavaScript -->
+    <script src="posts/js/main.js"></script>
+</body>
+</html>
