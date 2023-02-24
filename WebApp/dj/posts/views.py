@@ -4,6 +4,8 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from .models import Post, SocialCard
 from .forms import SocialCardForm
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 def login_view(request):
     if request.method == 'POST':
@@ -66,3 +68,13 @@ def view_social_card(request, social_card_id):
 
 def base(request):
     return render(request, 'posts/base.html')
+
+@csrf_exempt
+def nfc_url(request):
+    if request.method == 'POST':
+        url = request.POST.get('url')
+        # TODO: handle the URL and return appropriate response
+        return JsonResponse({'success': True})
+    else:
+        return JsonResponse({'success': False, 'error': 'Invalid request method'})
+
