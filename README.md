@@ -11,6 +11,7 @@ python manage.py runserver
 
 # TODO:
 - [ ] finaly write this readme
+- [x] optimise requirements
 - [x] add support ndef functions into js code using WebNfc technology
 - [ ] correct mistakes for ndef
 - [ ] optimize imports in views
