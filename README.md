@@ -23,7 +23,7 @@ python manage.py runserver
 - [ ] add replace for links to icons
 - [ ] create webview infrastructure
 - [ ] create progressive design with tailwind in minimalism style
-- [ ] support english
+- [ ] add support two languages
 - [ ] add friend logic
 - [ ] isolate users
 - [ ] add friend feature as nfc res
